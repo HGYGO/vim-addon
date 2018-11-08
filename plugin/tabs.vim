@@ -86,7 +86,6 @@ function! MyTabLine()
 	if tabpagenr('$') > 1
 		let s .= '%=%#TabLine#%999Xclose'
 	endif
-	echomsg "Tabline: " . s
 	return s
 endfunction
 
