@@ -10,6 +10,8 @@ endif
 let g:quickr_cscope_loaded = 1
 " }}
 
+let g:cscope_db_connected = 0
+
 " s:debug_echo {{
 function! s:debug_echo(str)
     if g:quickr_cscope_debug_mode
@@ -59,6 +61,7 @@ function! s:autoload_db()
         let &csprg=g:quickr_cscope_program
         call s:debug_echo('Trying to add the database file for program: ' . g:quickr_cscope_program)
         silent! execute "cs add " . db . " . -a"
+        let g:cscope_db_connected = 1
         return 1
     else
         call s:debug_echo('Database file not found.')
